@@ -1,6 +1,6 @@
 import { SignInButton, SignOutButton, useUser } from "@clerk/clerk-react";
 import Head from "next/head";
-import { api } from "~/utils/api";
+// import { api } from "~/utils/api";
 
 
 export default function Home() {

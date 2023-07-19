@@ -4,6 +4,7 @@ import Head from "next/head";
 import { type NextPage } from "next";
 import { useForm } from "react-hook-form";
 import { api } from "~/utils/api";
+import { useRouter } from "next/router";
 
 type SellItemForm = {
     name: string;
@@ -13,6 +14,7 @@ type SellItemForm = {
 
 
 const ListAnItem: NextPage = () => {
+    const router = useRouter();
     const createListing = api.listings.create.useMutation();
     const { register, handleSubmit } = useForm<SellItemForm>();
 
@@ -20,6 +22,8 @@ const ListAnItem: NextPage = () => {
         createListing.mutateAsync({
             ...formData,
             price: parseFloat(formData.price)
+        }).then(() => {
+            router.push("/");
         });
     };
 

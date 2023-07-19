@@ -1,4 +1,5 @@
 import { SignInButton, UserButton, useUser } from "@clerk/nextjs";
+import Link from "next/link";
 
 export function Navbar() {
     const user = useUser();
@@ -14,7 +15,10 @@ export function Navbar() {
                 <div className="md:w-auto">
                     <ul className="font-medium flex flex-row items-center space-x-6">
                         <li>
-                            <a href="#" className="hover:text-slate-400" aria-current="page">Home</a>
+                            <Link href="/" className="hover:text-slate-400" aria-current="page">Home</Link>
+                        </li>
+                        <li>
+                            <Link href="/list-an-item" className="hover:text-slate-400" aria-current="page">Create listing</Link>
                         </li>
                         { user.isSignedIn ?
                             '' :

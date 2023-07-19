@@ -17,11 +17,10 @@ export function Navbar() {
                         <li>
                             <Link href="/" className="hover:text-slate-400" aria-current="page">Home</Link>
                         </li>
-                        <li>
-                            <Link href="/list-an-item" className="hover:text-slate-400" aria-current="page">Create listing</Link>
-                        </li>
                         { user.isSignedIn ?
-                            '' :
+                            <li>
+                                <Link href="/list-an-item" className="hover:text-slate-400" aria-current="page">Create listing</Link>
+                            </li> :
                             <li className="hover:text-slate-400">
                                 <SignInButton>Sign In</SignInButton>
                             </li>
